@@ -1,0 +1,47 @@
+<link rel="stylesheet" href="<%=obj.cssPath%>">
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://kit.fontawesome.com/ea1e76dc8a.js" crossorigin="anonymous"></script>
+
+<body>
+    <header> <a href="/index"> <img src="Assets/icon-arrow-leftBlue.svg"/> &nbsp;&nbsp;Go Back </a> </header>
+    <div id="mainBody">
+        <img id="newFeedImg" src="Assets/icon-edit-feedback.svg" />
+        <h1 id="createTitle">Editing ‘Add a dark theme option’</h1>
+        <label>
+            <h1 class="labelTitle">Feedback Title</h1>
+            <h1 class="labelDesc">Add a short, descriptive headline</h1>
+            <input type="text" id="title" />
+        </label>
+        <label>
+            <h1 class="labelTitle">Category</h1>
+            <h1 class="labelDesc">Choose a category for your feedback</h1>
+            <div id="categoryInput"><button onclick="openSortOption()" id="sortButton">Feature</button><i class="fa-solid fa-angle-down" style="margin-left: 1vh ; color: #4661E6 ;" ></i></div>
+            <div id="category-Div">
+                <button class="categoryOption" style="border: none;" onclick="categoryFeedBack(this)">Feature <img src="Assets/icon-check.svg" /> </button>    
+                <button class="categoryOption" onclick="categoryFeedBack(this)">UI <img src="" /></button>
+                <button class="categoryOption" onclick="categoryFeedBack(this)">UX <img src="" /></button>
+                <button class="categoryOption" onclick="categoryFeedBack(this)">Enhancement <img src="" /></button>
+                <button class="categoryOption" onclick="categoryFeedBack(this)">Bug <img src="" /></button>
+                </div>
+        </label>
+        <label>
+            <h1 class="labelTitle">Update Status</h1>
+            <h1 class="labelDesc">Change feedback state</h1>
+            <div id="statusInput"><button onclick="openStatusOption()" id="statusButton">Feature</button><i class="fa-solid fa-angle-down" style="margin-left: 1vh ; color: #4661E6 ;" ></i></div>
+            <div id="status-Div">
+                <button class="statusOption" style="border: none;" onclick="statusFeedBack(this)">Suggestion <img src="Assets/icon-check.svg" /> </button>    
+                <button class="statusOption" onclick="statusFeedBack(this)">Planned <img src="" /></button>
+                <button class="statusOption" onclick="statusFeedBack(this)">In-Progress <img src="" /></button>
+                <button class="statusOption" onclick="statusFeedBack(this)">Live <img src="" /></button>
+                </div>
+        </label>
+        <label>
+            <h1 class="labelTitle">Feedback Detail</h1>
+            <h1 class="labelDesc">Include any specific comments on what should be improved, added, etc.</h1>
+            <textarea id="description"></textarea>
+        </label>
+        <div id="buttonDiv"><button onclick="deleteFeedBack()" id="deleteButton">Delete</button> <button onclick="cancelNewFeed()" id="cancelButton">Cancel</button><button onclick="updateFeedback()" id="submitButton">Save Changes</button> </div>
+    </div>
+</body>
+
+<script src="<%=obj.jsPath%>"></script>

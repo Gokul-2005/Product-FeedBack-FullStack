@@ -1,0 +1,64 @@
+<link rel="stylesheet" href="<%=obj.cssPath%>">
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://kit.fontawesome.com/ea1e76dc8a.js" crossorigin="anonymous"></script>
+<body>
+     <div id="sideBar">
+        <div id="userBox">
+            <h1 id="userName">Frontend Mentor</h1>
+            <h3 id="boardName">Feedback Board</h3>
+        </div>
+        <div id="FeedbackType">
+            <button onclick="sortByCategory(this)" class="feedbackClass" >All</button>
+            <button onclick="sortByCategory(this)" class="feedbackClass" >UI</button>
+            <button onclick="sortByCategory(this)" class="feedbackClass" >UX</button>
+            <button onclick="sortByCategory(this)" class="feedbackClass" >Enhancement</button>
+            <button onclick="sortByCategory(this)" class="feedbackClass" >Bug</button>
+            <button onclick="sortByCategory(this)" class="feedbackClass" >Feature</button>
+        </div>
+        <div id="roadmap">
+            <div class="roadmapSub" ><h2>Roadmap</h2><a href="/roadMap" id="roadmapSubButton">View</a></div>
+            <div class="roadmapSubText" ><div id="plannedDiv"></div> <h4 class="roadmMapType" >Planned</h4> <h4 class="roadMapTypeCount" >0</h4> </div>
+            <div class="roadmapSubText" ><div id="progressDiv"></div> <h4 class="roadmMapType" >In-Progress</h4> <h4 class="roadMapTypeCount" >0</h4> </div>
+            <div class="roadmapSubText" ><div id="liveDiv"></div> <h4 class="roadmMapType" >Live</h4> <h4 class="roadMapTypeCount" >0</h4> </div>
+        </div>
+     </div>
+     <div id="mainBox">
+        <div id="mainBoxHeader"> 
+            <div id="mainBoxHeaderSub1">
+                <img src="/Assets/icon-suggestions.svg" id="suggestionImg" />
+                <h1 id="suggestionCount"></h1>
+                <h5 id="sortByText">Sort by : <button id="sortButton" onclick="openSortOption()">Most Upvotes  </button><i class="fa-solid fa-angle-down" style="margin-left: 1vh"></i></h5>
+                <div id="sort-Div">
+                    <button class="sortOption" style="border: none;" onclick="sortFeedBack(this)">Most Upvotes <img src="Assets/icon-check.svg" /> </button>    
+                    <button class="sortOption" onclick="sortFeedBack(this)">Least Upvotes <img src="" /></button>
+                    <button class="sortOption" onclick="sortFeedBack(this)">Most Comments <img src="" /></button>
+                    <button class="sortOption" onclick="sortFeedBack(this)">Least Comments <img src="" /></button>
+                    </div>
+            </div>
+            <div id="mainBoxHeaderSub2">
+                <button onclick="showAddPage()" id="addFeedbackButton">+ Add Feedback</button>
+            </div>
+        </div>
+        <div id="mainBoxBody">
+            <% for(let i = 0 ; i<obj.data.length ; i++) { %>
+                <div Comments="" feedID ="<%= obj.data[i].id %>"  Upvotes="<%= obj.data[i].upvotes %>" category="<%= obj.data[i].catogery %>"  class="MainFeedBackClass" onclick="showBrief(this)" onmouseover="showHover(this)" onmouseleave="closeHover(this)">
+                    <div class="feedBackchild1">
+                        <% if(obj.data[i].userVote===0){ %>
+                            <button onclick="getData(this)" class="upvotesButton"><i class="fa-solid fa-angle-up" style="color: #4661E6;"></i> <%= obj.data[i].upvotes %> </button>
+                        <% } else { %>
+                            <button onclick="getData(this)" class="upVoteTicked"><i class="fa-solid fa-angle-up" style="color: #FFFFFF;"></i> <%= obj.data[i].upvotes %> </button>
+                        <%}%>   
+                    </div>
+                    <div class="feedBackchild2">
+                        <h1 class="feedbacktitle"><%= obj.data[i].title %></h1>
+                        <h1 class="feedbackdesc"><%= obj.data[i].description %></h1>
+                        <div class="feedbackcategory"><%= (obj.data[i].catogery) %></div>
+                    </div>
+                    <div class="feedBackchild3"> <img src="/Assets/icon-comments.svg" class="commentImg" /> &nbsp;&nbsp; <div></div></div>
+                </div>
+            <% } %>    
+        </div>
+     </div>
+</body>
+
+<script src="<%=obj.jsPath%>"></script>

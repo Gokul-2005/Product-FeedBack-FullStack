@@ -1,0 +1,85 @@
+<link rel="stylesheet" href="<%=obj.cssPath%>">
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://kit.fontawesome.com/ea1e76dc8a.js" crossorigin="anonymous"></script>
+
+
+<% function getCount(ele,element){
+    (obj.data).forEach(request => {
+        let total = 0;
+        if(ele===request.title){
+            total += JSON.parse(request.comments).length;
+            (JSON.parse(request.comments)).forEach(comment => {
+                if (comment.replies) {
+                    total += comment.replies.length;
+                  }
+            })
+            console.log(total);
+            element.innerText = total
+        }
+    });
+} %>
+
+
+
+<body>
+    <div id="mainBoxHeader"> 
+        <div id="mainBoxHeaderSub1">
+            <a id="linkForHome" href="/index"><img src="/Assets/icon-arrow-left.svg" style="width: 0.8vh; height: 1vh;" /> <div id="goBackText">Go Back</div> </a>
+            <h1 id="roadMapTitle">Roadmap</h1>
+        </div>
+        <div id="mainBoxHeaderSub2">
+            <button id="addFeedbackButton">+ Add Feedback</button>
+        </div>
+    </div>
+    <div id="mainBody">
+        <div class="classForMainCategoryBox">
+            <h1 class="classForCategoryHead"></h1>
+            <h2 class="classForCategoryDesc">Ideas prioritized for research</h2>
+            <% for(let i = 0 ; i<obj.data.length ; i++) { 
+                if(obj.data[i].status==='planned') {
+                %>
+                <div feedID = '<%= obj.data[i].id %>' class="classForInsertComment classForMainPlannedBox" onmouseover="showHover(this)" onmouseleave="closeHover(this)" onclick="showBrief(this)">
+                    <div class="roadmapSubText" ><div id="plannedDiv"></div> <h4 class="roadmMapType" >Planned</h4></div>
+                    <h1 class="feedBackTopic"> <%= obj.data[i].title %> </h1>
+                    <h1 class="feedBackDesc"><%= obj.data[i].description %></h1>
+                    <button class="feedbackClass" ><%= obj.data[i].catogery %></button>
+                    <div class="classForUpVotesAndComments"><button class="upvotesButton"><i class="fa-solid fa-angle-up" style="height: 1vh; width: 1vh; color: #4661E6;"></i> &nbsp; <%= obj.data[i].upvotes %> </button>   <div class="feedBackchild3"> <img src="/Assets/icon-comments.svg" class="commentImg" /> &nbsp;&nbsp; <div></div></div></div>  
+                </div>
+
+            <% }} %>
+        </div>
+        <div class="classForMainCategoryBox">
+            <h1 class="classForCategoryHead"></h1>
+            <h2 class="classForCategoryDesc">Currently being developed</h2>
+                <% for(let i = 0 ; i<obj.data.length ; i++) { 
+                    if(obj.data[i].status==='in-progress') {
+                    %>
+                    <div feedID = '<%= obj.data[i].id %>' class="classForInsertComment classForMainProgressBox" onmouseover="showHover(this)" onmouseleave="closeHover(this)" onclick="showBrief(this)">
+                        <div class="roadmapSubText" ><div id="progressDiv"></div> <h4 class="roadmMapType" >In Progress</h4></div>
+                        <h1 class="feedBackTopic"> <%= obj.data[i].title %> </h1>
+                        <h1 class="feedBackDesc"><%= obj.data[i].description %></h1>
+                        <button class="feedbackClass" ><%= obj.data[i].catogery %></button>
+                        <div class="classForUpVotesAndComments"><button class="upvotesButton"><i class="fa-solid fa-angle-up" style="height: 1vh; width: 1vh; color: #4661E6;"></i> &nbsp; <%= obj.data[i].upvotes %> </button>   <div class="feedBackchild3"> <img src="/Assets/icon-comments.svg" class="commentImg" /> &nbsp;&nbsp; <div></div></div></div>  
+                    </div>
+    
+                <% }} %>
+        </div>
+        <div class="classForMainCategoryBox">
+            <h1 class="classForCategoryHead"></h1>
+            <h2 class="classForCategoryDesc">Released features</h2>
+            <% for(let i = 0 ; i<obj.data.length ; i++) { 
+                if(obj.data[i].status==='live') {
+                %>
+                <div feedID = '<%= obj.data[i].id %>' class="classForInsertComment classForMainLiveBox" onmouseover="showHover(this)" onmouseleave="closeHover(this)" onclick="showBrief(this)">
+                    <div class="roadmapSubText" ><div id="liveDiv"></div> <h4 class="roadmMapType" >Live</h4></div>
+                    <h1 class="feedBackTopic"> <%= obj.data[i].title %> </h1>
+                    <h1 class="feedBackDesc"><%= obj.data[i].description %></h1>
+                    <button class="feedbackClass" ><%= obj.data[i].catogery %></button>
+                    <div class="classForUpVotesAndComments"><button class="upvotesButton"><i class="fa-solid fa-angle-up" style="height: 1vh; width: 1vh; color: #4661E6;"></i> &nbsp; <%= obj.data[i].upvotes %> </button>   <div class="feedBackchild3"> <img src="/Assets/icon-comments.svg" class="commentImg" /> &nbsp;&nbsp; <div></div></div></div>  
+                </div>
+
+            <% }} %>
+        </div>
+    </div>
+</body>
+<script src="<%=obj.jsPath%>"></script>

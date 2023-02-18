@@ -1,0 +1,76 @@
+<link rel="stylesheet" href="<%=obj.cssPath%>">
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://kit.fontawesome.com/ea1e76dc8a.js" crossorigin="anonymous"></script>
+
+<body>
+    <header><a id="linkForHome" href="/index"><img src="/Assets/icon-arrow-leftBlue.svg" style="width: 0.8vh; height: 1vh; color: #4661E6;" /> <div id="goBackText">Go Back</div></a>
+        <button onclick="showEditFeed()" id="addFeedbackButton">Edit Feedback</button>
+    </header>
+    <div id="FeedBackMain">
+        <% if(obj.data[0].userVote===0){ %>
+            <button onclick="getData(this)" class="upvotesButton"><i class="fa-solid fa-angle-up" style="color: #4661E6;"></i> <%= obj.data[0].upvotes %> </button>
+        <% } else { %>
+            <button onclick="getData(this)" class="upVoteTicked"><i class="fa-solid fa-angle-up" style="color: #FFFFFF;"></i> <%= obj.data[0].upvotes %> </button>
+        <%}%>        
+        <div id="textDiv">
+            <h1 id="feedTitle"><%= obj.data[0].title %></h1>
+            <h1 id="feedDesc"><%= obj.data[0].description %></h1>
+            <button class="feedbackcategory"><%= obj.data[0].catogery %></button>
+        </div>
+        <div class="commentDiv"> <img src="/Assets/icon-comments.svg" class="commentImg" /> &nbsp;&nbsp; <div><%= obj.comment %></div></div>
+    </div>
+    <div id="commentSection">
+        <h1 id="mainCommentCount"><%= obj.comment %> Comments</h1>
+        
+        <% for(let i = 0 ; i<JSON.parse(obj.data[0].comments).length ; i++){ 
+            if(obj.data[0].comments != [] ){%>
+                <div commentId = "<%= JSON.parse(obj.data[0].comments)[i].id %>" class="mainComment">
+                    <div class="commentHeader">
+                        <img src="<%= (JSON.parse(obj.data[0].comments)[i].user.image).substring(1,JSON.parse(obj.data[0].comments)[i].user.image.length) %>" class="userProfile" />
+                        <div class="userNameAndId">
+                            <h1 class="userNameText"><%= JSON.parse(obj.data[0].comments)[i].user.name %></h1>
+                            <h1 class="userIDText">@<%= JSON.parse(obj.data[0].comments)[i].user.username %></h1>
+                        </div>
+                        <button onclick="showNewReply(this)" class="replyButton">Reply</button>
+                    </div>
+                    <div class="commentBody">
+                        <%= JSON.parse(obj.data[0].comments)[i].content %>
+                    </div>
+                    <div class="classForReply" id="replyTextDiv">
+                        <textarea id="replyTextArea"></textarea>
+                        <button id="addReplyButton" onclick="addNewReply(this)" >Post Reply</button>
+                    </div>
+                    <% if(JSON.parse(obj.data[0].comments)[i].replies){
+                        for(let j = JSON.parse(obj.data[0].comments)[i].replies.length-1 ; j>=0 ; j--) {%>
+                            <div class="mainreply">
+                                <div class="replyHeader">
+                                    <img src="<%= (JSON.parse(obj.data[0].comments)[i].replies[j].user.image).substring(1,JSON.parse(obj.data[0].comments)[i].replies[j].user.image.length) %>" class="userProfile" />
+                                    <div class="userNameAndId">
+                                        <h1 class="userNameText"><%= JSON.parse(obj.data[0].comments)[i].replies[j].user.name %></h1>
+                                        <h1 class="userIDText">@<%= JSON.parse(obj.data[0].comments)[i].replies[j].user.username %></h1>
+                                    </div>
+                                    <button onclick="showNewReply(this)" class="replyButton">Reply</button>
+                                </div>
+                                <div class="replyBody">
+                                        <span>@<%= JSON.parse(obj.data[0].comments)[i].replies[j].replyingTo %> &nbsp; </span>  <%= JSON.parse(obj.data[0].comments)[i].replies[j].content %>
+                                </div>
+                                <div class="classForReply" id="replyTextDiv">
+                                    <textarea id="replyTextArea"></textarea>
+                                    <button id="addReplyButton" onclick="addNewNestedReply(this)" >Post Reply</button>
+                                </div>
+                            </div>
+                            <% }
+                        } %>
+                </div>
+        <% }
+            } %>    
+       
+    </div>
+    <div id="AddComment">
+        <h1 id="addCommentTitle">Add Comment</h1>
+        <textarea id="userCommentBox"></textarea>
+        <button id="addCommentButton" onclick="addNewComment()">Post Comment</button>
+    </div>
+</body>
+
+<script src="<%=obj.jsPath%>"></script>

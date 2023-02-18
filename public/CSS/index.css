@@ -1,0 +1,374 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700;800;900&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Jost', sans-serif;
+}
+*::-webkit-scrollbar {
+    display: none;
+  }
+  
+  * {
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+  }
+body{
+    height: 80%;
+    width: 73.6%;
+    background-color: #F7F8FD;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10vh 23vh 10vh 23vh;
+}
+#sideBar{
+    height: 98%;
+    width: 23%;
+    padding-top: 2vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+#mainBox{
+    height: 100%;
+    width: 73%;
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start ; 
+}
+#userBox{
+    height: 20%;
+    width: 90%;
+    background-image: url('/Assets/background-header.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    border-radius: 1vh;
+}
+#userName{
+    font-size: 2.5vh;
+    color: white;
+    font-weight: 600;
+    padding-left: 2vh;
+    margin-top: 7vh;
+}
+#boardName{
+    font-size: 1.8vh;
+    color: white;
+    font-weight: 400;
+    padding-left: 2vh;
+}
+#FeedbackType{
+    height: 17%;
+    width: 70%;
+    background-color: white;
+    margin-top: 3vh;
+    padding: 3vh 3vh 3vh 3vh;
+    border-radius: 1vh;
+}
+.feedbackClass{
+    height: 4vh;
+    background-color: #F2F4FF;
+    color: #4661E6;
+    font-size: 1.5vh;
+    font-weight: 600;
+    border: none;
+    margin-bottom: 1vh;
+    margin-left: 1vh;
+    padding: 0.7vh 1.5vh 0.7vh 1.5vh;
+    border-radius: 1vh;
+}
+.feedbackClass:hover{
+    cursor: pointer;
+    background-color: #CFD7FF;
+    color: #4661E6;
+}
+#roadmap{
+    height: 17%;
+    width: 70%;
+    background-color: white;
+    margin-top: 3vh;
+    padding: 3vh 3vh 3vh 3vh;
+    border-radius: 1vh;
+}
+.roadmapSub{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    color: #3A4374;
+}
+h2{
+    font-size: 2vh;
+}
+#roadmapSubButton{
+    background-color: transparent;
+    border: none;
+    border-bottom: 0.1vh solid #D0D7F8;
+    color: #D0D7F8;
+    font-size: 1.5vh;
+    font-weight: 500;
+    margin-top: 0.3vh;
+    text-decoration: none;
+}
+#roadmapSubButton:hover{
+    cursor: pointer;
+    color: #4661E6;
+    border-color: #4661E6;
+}
+.roadmapSubText{
+    width: 100% ;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1vh;
+}
+#plannedDiv{
+    height: 1vh;
+    width: 1vh;
+    background-color: #F49F85;
+    border-radius: 50%;
+}
+#progressDiv{
+    height: 1vh;
+    width: 1vh;
+    background-color: #AD1FEA;
+    border-radius: 50%;
+}
+#liveDiv{
+    height: 1vh;
+    width: 1vh;
+    background-color: #62BCFA;
+    border-radius: 50%;
+}
+.roadmMapType{
+    width: 90%;
+    font-size: 1.6vh;
+    color: #647196;
+    font-weight: 400;
+    padding-left: 1.5vh;
+}
+.roadMapTypeCount{
+    font-size: 1.7vh;
+    color: #647196;
+}
+#mainBoxHeader{
+    width: 95%;
+    height: 10%;
+    margin-top: 2vh;
+    background-color: #373F68;
+    border-radius: 1.5vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+#mainBoxHeaderSub1{
+    position: relative;
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#sort-Div{
+    position: absolute;
+    display: none   ;
+    height: 18vh;
+    width: 25vh;
+    background-color: #FFFFFF;
+    transform: translate(13vh,14vh);
+    border-radius: 1vh;
+    box-shadow: 0px 1vh 4vh -0.7vh rgba(55, 63, 104, 35%);
+    overflow: hidden;
+}
+.sortOption{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 25%;
+    color: #647196;
+    background-color: transparent;
+    border: 0px;
+    font-size: 1.7vh;
+    font-weight: 400;
+    text-align: left;
+    padding-top: 0.5vh;
+    padding-left: 2vh;
+    padding-right: 2.5vh;
+    padding-bottom: 0.6vh;
+    border-top: 1px solid #9797975e;
+}
+.sortOption:hover{
+    color: #AD1FEA;
+    font-weight: 500;
+}
+#suggestionImg{
+    height: 3.5vh;
+    width: 3.5vh;
+}
+#suggestionCount{
+    font-size: 2vh;
+    font-weight: 600;
+    color: white;
+}
+#sortByText{
+    color: white;
+    font-weight: 300;
+    font-size: 1.6vh;
+}
+#sortButton{
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 1.8vh;
+    font-weight: 500;
+}
+#sortButton:hover{
+    cursor: pointer;
+}
+#mainBoxHeaderSub2{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 2vh;
+}
+#addFeedbackButton{
+    width: 55%;
+    height: 65%;
+    background-color: #AD1FEA;
+    color: white;
+    font-size: 1.5vh;
+    font-weight: 600;
+    border: none;
+    border-radius: 1vh;
+}
+#addFeedbackButton:hover{
+    cursor: pointer;
+    background-color: #C75AF6;
+    color: #F2F4FE;
+}
+#mainBoxBody{
+    width: 95%;
+    height: 80%;
+    margin-top: 2.5vh;
+    padding-bottom: 0.5vh;
+    border-radius: 1.5vh;
+}
+.MainFeedBackClass{
+    width: 99.7%;
+    height: 24%;
+    background-color: white;
+    border-radius: 1vh;
+    margin-top: 1.5vh;
+    margin-bottom: 0.1vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.MainFeedBackClass:hover{
+    cursor: pointer;
+}
+.feedBackchild1{
+    height: 81%;
+    width: 15%;
+    padding-top: 3vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+}
+.feedBackchild2{
+    height: 81%;
+    width: 70%;
+    padding-top: 3vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.feedBackchild3{
+    height: 81%;
+    width: 15%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8vh;
+    font-weight: 700;
+    color: #3A4374;
+}
+.upvotesButton{
+    background-color: #F2F4FE;
+    color: #3A4374;
+    font-size: 1.5vh;
+    font-weight: 700;
+    border: none;
+    margin-bottom: 1vh;
+    margin-left: 1vh;
+    padding: 0.7vh 1vh 0.7vh 1vh;
+    border-radius: 1vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.upvotesButton:hover{
+    cursor: pointer;
+    color: #3A4374;
+    background-color: #CFD7FF;
+}
+.upVoteTicked{
+    background-color: #4661E6;
+    color: #FFFFFF;
+    font-size: 1.5vh;
+    font-weight: 700;
+    border: none;
+    margin-bottom: 1vh;
+    margin-left: 1vh;
+    padding: 0.7vh 1vh 0.7vh 1vh;
+    border-radius: 1vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.upVoteTicked:hover{
+    cursor: pointer;
+}
+.feedbacktitle{
+    font-size: 2.1vh;
+    font-weight: 600;
+    color: #3A4374;
+
+}
+.feedbackdesc{
+    font-size: 1.7vh;
+    font-weight: 400;
+    margin-top: 0.5vh;
+    color: #647196;
+}
+.feedbackcategory{
+    background-color: #F2F4FE;
+    color: #4661E6;
+    font-size: 1.5vh;
+    font-weight: 600;
+    margin-top: 1vh;
+    padding: 0.7vh 1vh 0.7vh 1vh;
+    border-radius: 1vh;
+}
+.commentImg{
+    height: 2vh;
+    width: 2.2vh;
+}
