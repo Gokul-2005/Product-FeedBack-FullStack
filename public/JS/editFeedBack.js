@@ -89,8 +89,12 @@ const setData = async(feedTitle,feedDesc,feedType,feedStatus) => {
       }
 }
 
+
 const cancelNewFeed = () => {
-    window.location.href = `/index`
+    const urlParams = new URLSearchParams(window.location.search);
+    const feedID = urlParams.get('id');
+    const comment = urlParams.get('comment');
+    window.location.href = `/showFeed?id=${feedID}&comment=${comment}`
 }
 
 const deleteFeedBack = () => {

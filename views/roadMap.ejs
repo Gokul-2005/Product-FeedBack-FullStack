@@ -28,7 +28,7 @@
             <h1 id="roadMapTitle">Roadmap</h1>
         </div>
         <div id="mainBoxHeaderSub2">
-            <button id="addFeedbackButton">+ Add Feedback</button>
+            <button id="addFeedbackButton" onclick="showAddFeedBack()">+ Add Feedback</button>
         </div>
     </div>
     <div id="mainBody">
@@ -43,7 +43,11 @@
                     <h1 class="feedBackTopic"> <%= obj.data[i].title %> </h1>
                     <h1 class="feedBackDesc"><%= obj.data[i].description %></h1>
                     <button class="feedbackClass" ><%= obj.data[i].catogery %></button>
-                    <div class="classForUpVotesAndComments"><button class="upvotesButton"><i class="fa-solid fa-angle-up" style="height: 1vh; width: 1vh; color: #4661E6;"></i> &nbsp; <%= obj.data[i].upvotes %> </button>   <div class="feedBackchild3"> <img src="/Assets/icon-comments.svg" class="commentImg" /> &nbsp;&nbsp; <div></div></div></div>  
+                    <div class="classForUpVotesAndComments"><% if(obj.data[i].userVote===0){ %>
+                        <button onclick="getData(this)" class="upvotesButton"><i class="fa-solid fa-angle-up" style="color: #4661E6;"></i>&nbsp; <%= obj.data[i].upvotes %> </button>
+                    <% } else { %>
+                        <button onclick="getData(this)" class="upVoteTicked"><i class="fa-solid fa-angle-up" style="color: #FFFFFF;"></i> &nbsp;<%= obj.data[i].upvotes %> </button>
+                    <%}%>   <div class="feedBackchild3"> <img src="/Assets/icon-comments.svg" class="commentImg" /> &nbsp;&nbsp; <div></div></div></div>  
                 </div>
 
             <% }} %>
@@ -59,7 +63,11 @@
                         <h1 class="feedBackTopic"> <%= obj.data[i].title %> </h1>
                         <h1 class="feedBackDesc"><%= obj.data[i].description %></h1>
                         <button class="feedbackClass" ><%= obj.data[i].catogery %></button>
-                        <div class="classForUpVotesAndComments"><button class="upvotesButton"><i class="fa-solid fa-angle-up" style="height: 1vh; width: 1vh; color: #4661E6;"></i> &nbsp; <%= obj.data[i].upvotes %> </button>   <div class="feedBackchild3"> <img src="/Assets/icon-comments.svg" class="commentImg" /> &nbsp;&nbsp; <div></div></div></div>  
+                        <div class="classForUpVotesAndComments"><% if(obj.data[i].userVote===0){ %>
+                            <button onclick="getData(this)" class="upvotesButton"><i class="fa-solid fa-angle-up" style="color: #4661E6;"></i>&nbsp; <%= obj.data[i].upvotes %> </button>
+                        <% } else { %>
+                            <button onclick="getData(this)" class="upVoteTicked"><i class="fa-solid fa-angle-up" style="color: #FFFFFF;"></i>&nbsp; <%= obj.data[i].upvotes %> </button>
+                        <%}%>   <div class="feedBackchild3"> <img src="/Assets/icon-comments.svg" class="commentImg" /> &nbsp;&nbsp; <div></div></div></div>  
                     </div>
     
                 <% }} %>
@@ -75,7 +83,11 @@
                     <h1 class="feedBackTopic"> <%= obj.data[i].title %> </h1>
                     <h1 class="feedBackDesc"><%= obj.data[i].description %></h1>
                     <button class="feedbackClass" ><%= obj.data[i].catogery %></button>
-                    <div class="classForUpVotesAndComments"><button class="upvotesButton"><i class="fa-solid fa-angle-up" style="height: 1vh; width: 1vh; color: #4661E6;"></i> &nbsp; <%= obj.data[i].upvotes %> </button>   <div class="feedBackchild3"> <img src="/Assets/icon-comments.svg" class="commentImg" /> &nbsp;&nbsp; <div></div></div></div>  
+                    <div class="classForUpVotesAndComments"><% if(obj.data[i].userVote===0){ %>
+            <button onclick="getData(this)" class="upvotesButton"><i class="fa-solid fa-angle-up" style="color: #4661E6;"></i>&nbsp; <%= obj.data[i].upvotes %> </button>
+        <% } else { %>
+            <button onclick="getData(this)" class="upVoteTicked"><i class="fa-solid fa-angle-up" style="color: #FFFFFF;"></i>&nbsp; <%= obj.data[i].upvotes %> </button>
+        <%}%>   <div class="feedBackchild3"> <img src="/Assets/icon-comments.svg" class="commentImg" /> &nbsp;&nbsp; <div></div></div></div>  
                 </div>
 
             <% }} %>

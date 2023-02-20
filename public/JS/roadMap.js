@@ -74,3 +74,7 @@ const showBrief = (ele) => {
     const comment = ele.children[4].querySelectorAll('div')[0].querySelectorAll('div')[0].innerText
     window.location.href = `http://localhost:5678/showFeed?id=${feedBackID}&comment=${comment}`;
 }
+
+const showAddFeedBack = () => {
+    window.location.href = `http://localhost:5678/addNewFeedBack`
+}

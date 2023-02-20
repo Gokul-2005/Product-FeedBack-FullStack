@@ -1,7 +1,8 @@
 const showEditFeed = () => {
     const urlParams = new URLSearchParams(window.location.search);
-        const feedID = urlParams.get('id');
-    window.location.href = `/editFeedBack?id=${feedID}` 
+    const feedID = urlParams.get('id');
+    const comment = urlParams.get('comment');
+    window.location.href = `/editFeedBack?id=${feedID}&comment=${comment}`; 
 }
 
 const addNewComment = () => {
@@ -17,12 +18,13 @@ const setData = async(newComment) => {
     try {
         const urlParams = new URLSearchParams(window.location.search);
         const feedID = urlParams.get('id');
+        const comment = urlParams.get('comment');
         console.log(feedID);
         let taskType = 'newComment'
         const response = await axios.post('http://localhost:5678/showFeed',{feedID,newComment,taskType});
         const userResponse =(response.data);
         console.log(userResponse);
-        window.location.href=`http://localhost:5678/showFeed?id=${feedID}`
+        window.location.href=`http://localhost:5678/showFeed?id=${feedID}&comment=${Number(comment)+1}`
       } catch (errors) {
         console.error(errors);
       }
