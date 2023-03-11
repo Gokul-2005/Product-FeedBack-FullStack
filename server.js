@@ -4,7 +4,6 @@ const database = require('mysql'); //This line contains mysql module
 const ejs = require('ejs'); //This line contains ejs module
 const bodyParser = require('body-parser'); //This line contains body-parser module
 const path = require('path');
-const e = require('express');
 const port = 5678 ;
 
 

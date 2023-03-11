@@ -17,6 +17,7 @@ function sortFeedBack(ele) {
             document.getElementsByClassName('sortOption')[i].querySelector('img').src="Assets/icon-check.svg";
             sortButton.innerText = document.getElementsByClassName('sortOption')[i].innerText
             document.getElementById("sort-Div").style.display="none";
+            console.log(ele.innerText);
             arrange(ele.innerText)
         }        
         else{
@@ -71,8 +72,6 @@ const getData = async() => {
             document.getElementsByClassName('MainFeedBackClass')[i].setAttribute('Comments',commentCountArr[i])
             document.getElementsByClassName('MainFeedBackClass')[i].children[2].querySelector('div').innerText=commentCountArr[i]
         }
-        arrange('Most Upvotes');
-
       } catch (errors) {
         console.error(errors);
       }
@@ -81,6 +80,26 @@ const getData = async() => {
 getData();
 
 function arrange(sortType) {
+    if(sortType.includes('Recently')){
+        const parentElement = document.querySelector('#mainBoxBody');
+     const childElements = parentElement.children;
+     const sortedChildren = [...childElements].sort((b, a) => {
+       const attributeA = Number(a.getAttribute("feedID"));
+       const attributeB = Number(b.getAttribute("feedID"));
+       if (attributeA < attributeB) {
+         return -1;
+       }
+       if (attributeA > attributeB) {
+         return 1;
+       }
+       return 0;
+     });
+     parentElement.innerHTML = '';
+     sortedChildren.forEach(child => {
+       parentElement.appendChild(child);
+     }); 
+    }
+    else{
     if(sortType.includes('Most')){
      const parentElement = document.querySelector('#mainBoxBody');
      const childElements = parentElement.children;
@@ -101,7 +120,6 @@ function arrange(sortType) {
      });
     }
     else{
-        console.log(sortType.split(" ")[1]);
         const parentElement = document.querySelector('#mainBoxBody');
         const childElements = parentElement.children;
         const sortedChildren = [...childElements].sort((a, b) => {
@@ -120,7 +138,7 @@ function arrange(sortType) {
           parentElement.appendChild(child);
         });
     }
-
+    }
 }
 
 
