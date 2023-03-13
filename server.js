@@ -34,7 +34,7 @@ connection.connect((error) => {
 });
 
 app.post('/index',(req,response) => {
-    let getQuery = `SELECT * FROM Feedback ORDER BY id`
+    let getQuery = `SELECT * FROM Feedback ORDER BY id desc`
     connection.query(getQuery,(err,res)=>{
         if(err) console.log(err);
         else{
@@ -57,7 +57,7 @@ app.get('/index', (req, response) => {
         }
     })
     
-});
+})
 
 app.post(('/roadMap'),(request,response)=>{
     let getQuery = `SELECT * FROM Feedback ORDER BY id`
